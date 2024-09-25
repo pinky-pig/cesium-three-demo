@@ -1,0 +1,20 @@
+<script setup lang="ts">
+const isShowMini = ref(true)
+const labelContainer = ref<HTMLElement | null>(null)
+function handleClick() {
+  isShowMini.value = !isShowMini.value
+
+  if (labelContainer.value && labelContainer.value.parentElement) {
+    labelContainer.value.parentElement.style.zIndex = isShowMini.value ? '1' : '10'
+  }
+}
+</script>
+
+<template>
+  <div ref="labelContainer" class="pointer-events-auto">
+    <img v-if="isShowMini" class="mt-[310px]" @click="handleClick" src="/images/system/调度中心标牌.png" alt="">
+    <img v-else @click="handleClick" src="/images/system/route南京电力调度中心面板.png" alt="">
+  </div>
+</template>
+
+<style scoped></style>

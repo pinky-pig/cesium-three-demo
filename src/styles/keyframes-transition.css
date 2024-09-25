@@ -1,0 +1,50 @@
+
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* bounce */
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* animate.css 例子 */
+/* <script setup>
+import { ref } from 'vue'
+
+const show = ref(true)
+</script>
+
+<template>
+	<button @click="show = !show">Toggle</button>
+  <Transition
+    name="custom-classes"
+    enter-active-class="animate__animated animate__tada"
+    leave-active-class="animate__animated animate__bounceOutRight"
+  >
+    <p v-if="show">hello</p>
+  </Transition>
+</template> */
+
+
