@@ -1,4 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
 import * as Cesium from 'cesium'
 
 let earthBaseMapImagery: Cesium.ImageryLayer | null
@@ -25,14 +24,24 @@ export function setupEarthBaseMap(viewer: Cesium.Viewer) {
   // })
 
   // http://localhost:8082/nj-map/demo.html // 本地预览地址
-  const west = 118.42896763
-  const south = 31.200068
-  const east = 119.210667
-  const north = 32.68435991
-  const imageryProvider = new Cesium.UrlTemplateImageryProvider({
-    // rectangle: Cesium.Rectangle.fromDegrees(west, south, east, north),  // 瓦片覆盖的经纬度范围
-    maximumLevel: 18,
-    url: 'http://localhost:8082/nj-map/{z}/{x}/{y}.png',
+  // const west = 118.42896763
+  // const south = 31.200068
+  // const east = 119.210667
+  // const north = 32.68435991
+  // const imageryProvider = new Cesium.UrlTemplateImageryProvider({
+  //   // rectangle: Cesium.Rectangle.fromDegrees(west, south, east, north),  // 瓦片覆盖的经纬度范围
+  //   maximumLevel: 18,
+  //   url: 'http://localhost:8082/nj-map/{z}/{x}/{y}.png',
+  // })
+
+  // earthBaseMapImagery = viewer.imageryLayers.addImageryProvider(imageryProvider)
+  const imageryProvider = new Cesium.MapboxStyleImageryProvider({
+    accessToken:
+      'pk.eyJ1IjoicGlua3ktcGlnIiwiYSI6ImNsZnJvZ2Q1cDAwZ3ozcG56bXFwbjAzZjAifQ.eEOFvRbKqZHQ3OxeqPBsXw',
+    scaleFactor: true,
+    styleId: 'cm10ew6ts00k301r778i8eum2',
+    url: 'https://api.mapbox.com/styles/v1/',
+    username: 'pinky-pig',
   })
 
   earthBaseMapImagery = viewer.imageryLayers.addImageryProvider(imageryProvider)
